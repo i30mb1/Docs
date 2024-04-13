@@ -1,4 +1,3 @@
-**CoroutineScope**— это основной компонент для управления корутинами в [[Kotlin]]. Он предоставляет API для запуска и отмены корутин и
 позволяет определять, на каком потоке должны выполняться операции
 
 ### GlobalScope
@@ -33,3 +32,29 @@ GlobalScope.launch { // Код корутины }
 повторно использованы для выполнения задач
 
 https://habr.com/ru/articles/747858/
+
+- Конструкция **coroutineScope** внутри которой можно запускать несколько корутин, которые будут работать параллельно и все они должны завершиться чтобы **coroutineScope** блок вернул результат выполнения
+```Kotlin
+coroutineScope ≡ withContext(this.coroutineContext)
+```
+Для того чтобы запустить работу и ее не дожидались нужно поменять Job
+```Kotlin
+coroutineScope {  
+	launch(Job()) { ... }  
+}
+```
+
+- Передавать scope плохо, если из-вне отменят scope то при run не будет ни ошибки, ни выполнится работа
+```Kotlin
+class Work(private val scope: CoroutineScope) {  
+  
+	fun run() {  
+		scope.launch {  
+		delay(1_000)  
+		println("work done")  
+			 }  
+		  }  
+}
+```
+
+https://www.droidcon.com/2023/10/06/coroutines-flow-android-the-good-parts/

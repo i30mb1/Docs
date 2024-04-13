@@ -5,6 +5,9 @@ val number1: Int = 3
 val number2: Int = number1
 ```
 
+`const val` is used to declare a compile-time constant value
+`val` is used to declare a read-only immutable variable
+
 Теневые поля /Backing Fields - field cannot be declared directly in Kotlin classes. However, when a property need a backing field, Kotlin
 provides it automatically. Может быть доступа через `field` в `get()/set()`
 

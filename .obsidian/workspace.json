@@ -4,34 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "8b17e0a30c385c8b",
+        "id": "99911fe196811648",
         "type": "tabs",
         "children": [
           {
-            "id": "f5e71ea726aae277",
+            "id": "895888fea176e3df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "разработка/Архитектура приложения.md",
+                "file": "разработка/Git Bash.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "6096e31bb4ebd400",
+            "id": "c04b32b8561d464c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "разработка/Android/Application Launch in Android.md",
+                "file": "разработка/C++/Cmake.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "серти",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -105,13 +106,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "разработка/Архитектура приложения.md",
+                "file": "разработка/C++/Cmake.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
+                "backlinkCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
@@ -122,9 +123,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "разработка/Архитектура приложения.md",
+                "file": "разработка/C++/Cmake.md",
                 "linksCollapsed": true,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               }
             }
           },
@@ -145,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "разработка/Архитектура приложения.md"
+                "file": "разработка/C++/Cmake.md"
               }
             }
           },
@@ -155,7 +156,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -164,8 +167,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 482.5,
-    "collapsed": true
+    "width": 482.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,47 +179,51 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f5e71ea726aae277",
+  "active": "c04b32b8561d464c",
   "lastOpenFiles": [
+    "разработка/Git Bash.md",
+    "разработка/C++/Cmake.md",
+    "Криптография/Кодирование.md",
+    "разработка/C++/Untitled",
+    "разработка/C++/Cmake",
+    "Криптография/Шифрование.md",
+    "Криптография/Хэширование.md",
+    "Криптография/Ассиметричное шифрование.md",
+    "Криптография/Симметричное шифрование.md",
+    "Криптография/Криптография.md",
+    "Интернет/SSL - TSL.md",
+    "разработка/Android/Binder.md",
+    "разработка/Android/Android.md",
+    "Криптография/SHA-1.md",
+    "Криптография/SHA-256.md",
+    "Криптография/Base64.md",
+    "разработка/Kotlin/Annotations.md",
     "разработка/Отношение между классами и обьектами.md",
-    "разработка/Архитектура приложения.md",
-    "разработка/Android/Activity.md",
-    "разработка/Android/Анимации в Android.md",
-    "разработка/Android/Application Launch in Android.md",
-    "разработка/Git.md",
-    "разработка/Dagger.md",
-    "разработка/Kotlin/Псевдотипы.md",
-    "разработка/InputStream.md",
-    "разработка/Android/Intent.md",
-    "разработка/Android/Broadcast Receiver.md",
-    "разработка/Android/Service.md",
-    "разработка/Kotlin/When.md",
-    "разработка/Kotlin/non-local return.md",
-    "разработка/Kotlin/Lambdas.md",
-    "разработка/Kotlin/Function references.md",
-    "разработка/Kotlin/Extensions.md",
-    "разработка/Kotlin/Higher Order Function.md",
-    "разработка/List.md",
-    "разработка/HasCode.md",
+    "разработка/Kotlin/Generics.md",
     "разработка/HashMap.md",
-    "разработка/Android/ArrayMap.md",
-    "разработка/Cортировки.md",
-    "разработка/APT.md",
-    "разработка/Annotations.md",
-    "system/UNICODE.md",
+    "разработка/HashCode.md",
+    "bit.md",
+    "разработка/Security/Авторизация.md",
+    "разработка/Security/Идентификация.md",
+    "разработка/Security/Аутентификация.md",
+    "идентификационных.md",
+    "разработка/C++/C++ Basics.md",
+    "References.md",
+    "разработка/Security",
+    "разработка/C++",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "разработка/картинки/context.png",
     "разработка/Kotlin",
     "разработка/Android",
     "context.mdb",
     "Context/spacesLastSync.log",
     "Context",
-    "Untitled.canvas",
     "разработка/картинки/Gradle Assemble Task.png",
     "разработка/картинки/Composable Фазы.png",
     "разработка/картинки/GC Memory.png",
-    "разработка/картинки",
-    "Криптография",
-    "разработка",
-    "Интернет",
-    "system"
+    "разработка/картинки"
   ]
 }

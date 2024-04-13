@@ -31,3 +31,5 @@ do not rename classes that extends MyClass
 ```Java
 -keepnames class extends*com.example.MyClass{*;}
 ```
+
+https://medium.com/@attilaptkai/proguard-everything-you-need-to-know-bb5ff9c04bcd

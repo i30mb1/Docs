@@ -23,3 +23,28 @@ fun build(action: (StringBuilder).() -> Unit): String
 ```
 
 
+# Lambda vs Method Reference
+
+While Lambda, captures **variables** by reference, which means they hold a reference to the **variable**, not a copy of its value. This means that when the lambda is invoked, it accesses the current value of the captured variable in its enclosing scope, not the value at the time of declaration
+
+```Kotlin
+class SayHelloTo(  
+private val name: String  
+) {  
+fun onClick() {  
+print(name)  
+}  
+}  
+  
+fun main() {  
+var listener = SayHelloTo("no1")  
+  
+val lamdba = { listener.onClick() }  
+val reference = listener::onClick  
+  
+listener = SayHelloTo("no2")  
+  
+lamdba() // prints no2  
+reference() //prints no1  
+}
+
