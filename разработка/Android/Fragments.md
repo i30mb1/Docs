@@ -1,22 +1,21 @@
 компонент [[Android]]
 
-один и тот же instance нельзя показать в одном fragmentManager, перед добавлением можно смотреть Fragment.isAdded и isMainThread чтобы не получить ошибку.
+один и тот же instance нельзя показать в одном `fragmentManager`, перед добавлением можно смотреть `Fragment.isAdded` и `isMainThread` чтобы не получить ошибку
 
 ### При вызове диалога из Fragment
 
-перед вызовом диалога нужно проверить Fragment.isStateSaved для предотвращения ошибки IllegalStateException (Can not perform this action
-after onSavedState)
-или вместо commit() использовать commitWithStateLoss()
+перед вызовом диалога нужно проверить `Fragment.isStateSaved` для предотвращения ошибки `IllegalStateException (Can not perform this action after onSavedState)`
+или вместо `commit()` использовать `commitWithStateLoss()`
 
 ### Жизненный Цикл
 
 Before API 28
 '''
-LifecycleEvent.ON_STOP -> onSaveInstanceState() -> onStop()
+`LifecycleEvent.ON_STOP` -> `onSaveInstanceState()` -> `onStop()`
 '''
 API 28+
 '''
-LifecycleEvent.ON_STOP -> onStop() -> onSaveInstanceState()
+`LifecycleEvent.ON_STOP` -> `onStop()` ->` onSaveInstanceState()`
 '''
 
 Если у нас есть `Fragment`

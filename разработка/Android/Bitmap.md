@@ -9,9 +9,9 @@
 - `Bitmap.createBitmap(...)`
 - `Bitmap.createScaleBitmap(...)`
   BitmapFactory.Options
-- inJustDecodeBounds - вернет только информацию о битмапе
-- inSampleSize - уменьшает изображение в X раз (кратно 2)
-- inPreferredConfig(...) - задает конфиг типа RGB_565
+- `inJustDecodeBounds` - вернет только информацию о битмапе
+- `inSampleSize` - уменьшает изображение в X раз (кратно 2)
+- `inPreferredConfig(...)` - задает конфиг типа RGB_565
 
 Файл с набором байт 1024x1024 занимал бы 3 мегабайта
 поэтому есть кодировщики как

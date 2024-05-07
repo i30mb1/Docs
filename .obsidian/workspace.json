@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "разработка/C++/Cmake.md",
+                "file": "разработка/Android/Lifecycle.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "серти",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "разработка/C++/Cmake.md",
+                "file": "разработка/Android/Lifecycle.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "разработка/C++/Cmake.md",
+                "file": "разработка/Android/Lifecycle.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "разработка/C++/Cmake.md"
+                "file": "разработка/Android/Lifecycle.md"
               }
             }
           },
@@ -167,7 +167,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 482.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,8 +182,25 @@
   },
   "active": "c04b32b8561d464c",
   "lastOpenFiles": [
+    "разработка/Android/Intent.md",
+    "разработка/Android/Fragments.md",
+    "разработка/Android/Bitmap.md",
+    "разработка/Android/Binder.md",
+    "разработка/Android/ArrayMap.md",
+    "разработка/Android/Activity.md",
+    "разработка/Android/Android.md",
+    "разработка/Android/Service.md",
     "разработка/Git Bash.md",
+    "разработка/Android/ProGuard.md",
+    "разработка/Android/Profiling.md",
+    "разработка/Android/Permission.md",
+    "разработка/Android/Lifecycle.md",
+    "разработка/Android/FileProvider.md",
+    "разработка/Android/Camera.md",
+    "разработка/C++/Классы в С++.md",
+    "разработка/C++/C++ Basics.md",
     "разработка/C++/Cmake.md",
+    "Android Studio.md",
     "Криптография/Кодирование.md",
     "разработка/C++/Untitled",
     "разработка/C++/Cmake",
@@ -192,23 +210,6 @@
     "Криптография/Симметричное шифрование.md",
     "Криптография/Криптография.md",
     "Интернет/SSL - TSL.md",
-    "разработка/Android/Binder.md",
-    "разработка/Android/Android.md",
-    "Криптография/SHA-1.md",
-    "Криптография/SHA-256.md",
-    "Криптография/Base64.md",
-    "разработка/Kotlin/Annotations.md",
-    "разработка/Отношение между классами и обьектами.md",
-    "разработка/Kotlin/Generics.md",
-    "разработка/HashMap.md",
-    "разработка/HashCode.md",
-    "bit.md",
-    "разработка/Security/Авторизация.md",
-    "разработка/Security/Идентификация.md",
-    "разработка/Security/Аутентификация.md",
-    "идентификационных.md",
-    "разработка/C++/C++ Basics.md",
-    "References.md",
     "разработка/Security",
     "разработка/C++",
     "Untitled 3.canvas",
