@@ -7,7 +7,7 @@ Activity/Fragment lifecycle
 | -                     | onAttach            |                                              |
 | -                     | onCreate            | если retainInstance то пропускается          |
 | -                     | onCreateView        |                                              |
-| -                     | onViewCreated       |                                              |
+| -                     | onViewCreated       | asdf                                         |
 | onContentChanged      | -                   |                                              |
 | -                     | onActivityCreated   |                                              |
 | -                     | onViewStateRestored |                                              |

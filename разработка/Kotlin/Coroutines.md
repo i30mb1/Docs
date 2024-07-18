@@ -1,5 +1,15 @@
 позволяет определять, на каком потоке должны выполняться операции
 
+### CoroutineScope
+
+интерфейс который предоставляет корутине контекст
+
+### CoroutineContext
+
+нужен для хранения полезных штук при выполнении корутины:
+CoroutineName, CoroutineDispatcher, Job, CoroutineExceptionHandler...
+
+https://habr.com/ru/articles/827866/
 ### GlobalScope
 
 это глобальный CoroutineScope, который может быть использован для запуска корутин в приложении. Он не связан с жизненным циклом компонентов

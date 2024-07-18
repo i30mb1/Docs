@@ -12,8 +12,8 @@ If your app needs to share files with other apps, such as media, documents, or o
 
 - App-specific files (files removes on app unistall)
     - Internal Storage
-        - filesDir
-        - cacheDir
+        - context.filesDir - File(it, "text.txt") data/data/package.name/files/...
+        - context.cacheDir
     - external Storage (need permission if API < 20)
         - externalFileDir
         - externalCacheDir
@@ -35,3 +35,5 @@ Extensions
 проверка на external
 
 - `if(Environment.getExternalStorageState == Environment.MEDIA_MOUNTED)`
+
+https://youtu.be/wuh7KL6pT4M

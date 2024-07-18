@@ -84,6 +84,14 @@ int main() {
 }
 ```
 
+
+```C++
+std::vector<std::string> music {
+ "pop",
+ "metal",
+ ...
+};
+```
 Последовательные контейнеры
 ```C++
 std::array<int, 3> point = {1, 2, 3};
