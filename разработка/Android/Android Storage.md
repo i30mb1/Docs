@@ -31,7 +31,7 @@ If your app needs to share files with other apps, such as media, documents, or o
 Extensions
 `File.readText()`
 `File.readBytes()`
-
+`File("signedData").writeBytes(signedData)`
 проверка на external
 
 - `if(Environment.getExternalStorageState == Environment.MEDIA_MOUNTED)`
