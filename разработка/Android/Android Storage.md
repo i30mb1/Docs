@@ -33,6 +33,7 @@ Extensions
 `File.readBytes()`
 `File("signedData").writeBytes(signedData)`
 проверка на external
+FileOutputStream("file").write(1) - записывает в папку приложения
 
 - `if(Environment.getExternalStorageState == Environment.MEDIA_MOUNTED)`
 
