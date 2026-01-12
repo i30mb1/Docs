@@ -10,7 +10,7 @@ docker run --rm -it \
   -p 1935:1935 \
   -p 8080:8080 \
   -p 10080:10080/udp \
-  -v "D:\AndroidProject\docs\стрим\local_network.txt":/usr/local/srs/conf/srt.conf \
+  -v "D:\AndroidProject\docs\стрим\local.txt":/usr/local/srs/conf/srt.conf \
   ossrs/srs:v6.0-r0 \
   ./objs/srs -c conf/srt.conf
 ```
@@ -29,30 +29,29 @@ docker run --rm -it \
 
 srt://IP:10080?streamid=#!::r=live/livestream,m=request
 
-| Конфиг   | Latency   | Буферы | tlpktdrop | tsbpdmode | Сценарий     |
-| -------- | --------- | ------ | --------- | --------- | ------------ |
-| LOCAL    | 50ms      | 500KB  | ON        | ON        | Локалка      |
-| QUALITY  | 0 (адапт) | 10MB   | OFF       | OFF       | Плохая сеть  |
-| BALANCED | 120ms     | 3MB    | ON        | ON        | Норм сеть    |
-| SPEED    | 300ms     | 1.5MB  | ON        | ON        | Хорошая сеть |
+| Конфиг   | Latency   | Буферы | tlpktdrop | tsbpdmode | Сценарий          | RTT       |
+| -------- | --------- | ------ | --------- | --------- | ----------------- | --------- |
+| LOCAL    | 120ms     | 2MB    | ON        | ON        | Локалка/WiFi      | 1-30ms    |
+| SPEED    | 400ms     | 1.5MB  | ON        | ON        | 5G/хороший 4G     | ~100ms    |
+| BALANCED | 600ms     | 3MB    | ON        | ON        | Типичный 4G       | ~150ms    |
+| QUALITY  | 0 (адапт) | 10MB   | OFF       | OFF       | Плохая сеть       | любой     |
 
 
-### Примеры стриминга
-
-**OBS настройка:**
-- Сервер: `srt://your_server_ip:8080`
+# Примеры стриминга
+## OBS настройка:
+### Транслируем на сервер
+- Сервер: `srt://your_server_ip:10080`
 - Stream Key: `#!::r=live/livestream,m=publish`
-
-- Cервер: `srt://your_server_ip:8080:?streamid=#!::r=live/livestream,m=publish`
-
-- Смотреть: `srt://your_server_ip:8080?streamid=live/livestream`
+### Считываем
+- Источник медиа -> Вввод: `srt://your_server_ip:10080?streamid=#!::r=live/livestream,m=publish`
+- Источник медиа -> Вввод: `srt://your_server_ip:10080?streamid=live/livestream`
 
 Camera настройка:
-- `srt://127.0.0.1:8080`
+- `srt://127.0.0.1:10080`
 
 Larix Настройка
-- url: `srt://127.0.0.1:8080`
-- streamid:  `#!::r=live/livestream1,m=publish`
+- url: `srt://127.0.0.1:10080`
+- streamid:  `#!::r=live/livestream,m=publish`
 
 
 Попробовать отправлять видео с камеры в 3.000 kbps

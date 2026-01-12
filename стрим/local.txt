@@ -25,10 +25,10 @@ srt_server {
     enabled         on;
     listen          10080;
     
-    # Задержка для локалки (запас на обработку)
-    peerlatency     0;         # Стандартные 120ms работают лучше
-    recvlatency     0;
-    latency         0;
+    # Задержка для локалки (4× RTT, где RTT=1-5ms, минимум SRT=20ms)
+    peerlatency     120;
+    recvlatency     120;
+    latency         120;
     
     # Включить для стабильности даже с минимальной задержкой
     tsbpdmode       on;
