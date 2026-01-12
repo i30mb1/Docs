@@ -1,0 +1,70 @@
+# ============================================================
+# OUTDOOR #2 - БАЛАНС (фиксированная задержка ~500-800ms)
+# Для: стабильный мобильный интернет, 4G/5G
+# Золотая середина между качеством и задержкой
+# ============================================================
+
+listen              1935;
+max_connections     20;
+daemon              off;
+srs_log_tank        console;
+
+http_api {
+    enabled         on;
+    listen          1985;
+}
+
+http_server {
+    enabled         on;
+    listen          8080;
+    dir             ./objs/nginx/html;
+}
+
+# Сбалансированные настройки
+srt_server {
+    enabled         on;
+    listen          10080;
+    
+    # Средняя фиксированная задержка
+    peerlatency     120;         # Стандартные 120ms
+    recvlatency     120;
+    latency         120;
+    
+    # Включить timestamp delivery
+    tsbpdmode       on;
+    
+    # Дропать опоздавшие пакеты (баланс)
+    tlpktdrop       on;
+    
+    # Средние буферы
+    sendbuf         3000000;     # 3 МБ
+    recvbuf         3000000;     # 3 МБ
+    
+    connect_timeout 5000;        # 5 сек
+    peer_idle_timeout 10000;     # 10 сек
+    
+    maxbw           -1;
+    mss             1500;
+    
+    default_app     live;
+}
+
+vhost __defaultVhost__ {
+    srt {
+        enabled         on;
+        srt_to_rtmp     on;
+    }
+    
+    http_remux {
+        enabled         on;
+        mount           [vhost]/[app]/[stream].flv;
+    }
+    
+    hls {
+        enabled         off;
+    }
+}
+
+stats {
+    network         0;
+}
