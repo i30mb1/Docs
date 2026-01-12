@@ -38,20 +38,28 @@ srt://IP:10080?streamid=#!::r=live/livestream,m=request
 
 
 # Примеры стриминга
+
+## Переменные
+| Переменная           | Описание                 | Как узнать                                                 |
+| -------------------- | ------------------------ | ---------------------------------------------------------- |
+| `{your_server_ip}`   | IP адрес сервера с SRS   | Win: `ipconfig`, Mac/Linux: `ifconfig`, Local: `127.0.0.1` |
+| `{name}`             | Имя стрима (любое)       | Придумай сам: `stream1`, `cam1`, `phone`                   |
+| `10080`              | Порт SRT (UDP)           | Стандартный порт для SRT в конфигах выше                   |
+
 ## OBS настройка:
 ### Транслируем на сервер
-- Сервер: `srt://your_server_ip:10080`
-- Stream Key: `#!::r=live/livestream,m=publish`
+- Сервер: `srt://{your_server_ip}:10080`
+- Stream Key: `#!::r=live/{name},m=publish`
 ### Считываем
-- Источник медиа -> Вввод: `srt://your_server_ip:10080?streamid=#!::r=live/livestream,m=publish`
-- Источник медиа -> Вввод: `srt://your_server_ip:10080?streamid=live/livestream`
+- Источник медиа -> Вввод: `srt://{your_server_ip}:10080?streamid=#!::r=live/{name},m=publish`
+- Источник медиа -> Вввод: `srt://{your_server_ip}:10080?streamid=live/{name}`
 
-Camera настройка:
-- `srt://127.0.0.1:10080`
+## Camera настройка:
+- `srt://{your_server_ip}:10080`
 
-Larix Настройка
-- url: `srt://127.0.0.1:10080`
-- streamid:  `#!::r=live/livestream,m=publish`
+## Larix Настройка:
+- url: `srt://{your_server_ip}:10080`
+- streamid:  `#!::r=live/{name},m=publish`
 
 
 Попробовать отправлять видео с камеры в 3.000 kbps
