@@ -1,0 +1,13 @@
+name: srs
+
+services:
+  srs:
+    image: ossrs/srs:v6.0-r0
+    container_name: srs-local
+    ports:
+      - "1935:1935"
+      - "8080:8080"
+      - "10080:10080/udp"
+    volumes:
+      - ./local.txt:/usr/local/srs/conf/srt.conf
+    command: ./objs/srs -c conf/srt.conf

@@ -1,10 +1,23 @@
 # SRS SRT Конфигурации
 
-
-После запуска можно открыть браузер http://127.0.0.1:8090/ и смотреть инфу
-
 1) Запускаем docker в Git Bash
 
+**Вариант 1: docker-compose (рекомендуется)**
+```bash
+# Локалка/WiFi
+docker-compose -f docker-compose.local.yml up
+
+# 5G / хороший 4G
+docker-compose -f docker-compose.speed.yml up
+
+# Типичный 4G
+docker-compose -f docker-compose.balance.yml up
+
+# Плохая сеть
+docker-compose -f docker-compose.quality.yml up
+```
+
+**Вариант 2: docker run**
 ```bash
 docker run --rm -it \
   -p 1935:1935 \
