@@ -10,7 +10,7 @@ docker run --rm -it \
   -p 1935:1935 \
   -p 8080:8080 \
   -p 10080:10080/udp \
-  -v "D:\srt\local.txt":/usr/local/srs/conf/srt.conf \
+  -v "D:\AndroidProject\docs\стрим\local_network.txt":/usr/local/srs/conf/srt.conf \
   ossrs/srs:v6.0-r0 \
   ./objs/srs -c conf/srt.conf
 ```
