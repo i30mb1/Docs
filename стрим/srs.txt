@@ -1,43 +1,45 @@
+# Основные настройки сервера
 listen              1935;
-max_connections     1000;
-
-http_server {
-    enabled         on;
-    listen          8080;
-    dir             ./objs/nginx/html;
-}
+max_connections     20;
+daemon              off;
+srs_log_tank        console;
 
 http_api {
     enabled         on;
     listen          1985;
 }
 
-vhost __defaultVhost__ {
+http_server {
+    enabled         on;
+    listen          8080;
 }
 
+# Настройки SRT сервера (Прием потока с камеры)
 srt_server {
     enabled         on;
     listen          10080;
-    
-    # Синхронизируем с камерой
-    latency         1000;      
-    
-    # ОБЯЗАТЕЛЬНО ВКЛЮЧИТЬ: Timestamp-based Packet Delivery
-    # В режиме 'on' SRT отдает пакеты равномерно, как их видит камера.
-    # Это уберет рывки и фризы в OBS.
-    tsbpdmode       on;        
-    
-    # ОБЯЗАТЕЛЬНО ВКЛЮЧИТЬ: Too-late Packet Drop
-    # Если пакет опоздал более чем на 1 секунду, он сбрасывается.
-    # Это не дает задержке расти (стрим не будет отставать от чата всё сильнее).
-    tlpktdrop       on;        
-    
-    # Большие буферы для 4K/1080p60
+
+    # Синхронизация задержки с камерой (1 секунда)
+    latency         1000;
+
+    # Плавность: отдает пакеты в OBS равномерно, убирая рывки
+    tsbpdmode       on;
+
+    # Защита: сбрасывает слишком старые пакеты, не давая задержке расти
+    tlpktdrop       on;
+
+    # Увеличенные буферы для работы с HEVC/1080p60
     sendbuf         20000000;
     recvbuf         20000000;
-    
+
     connect_timeout 4000;
     peer_idle_timeout 8000;
-    maxbw           -1;
-    mss             1500;
+}
+
+# Виртуальный хост (Конвертация SRT -> RTMP для OBS)
+vhost __defaultVhost__ {
+    srt {
+        enabled     on;
+        srt_to_rtmp on;
+    }
 }

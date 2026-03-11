@@ -2,22 +2,7 @@
 
 1) Запускаем docker в Git Bash
 
-**Вариант 1: docker-compose (рекомендуется)**
-```bash
-# Локалка/WiFi
-docker-compose -f docker-compose.local.yml up
-
-# 5G / хороший 4G
-docker-compose -f docker-compose.speed.yml up
-
-# Типичный 4G
-docker-compose -f docker-compose.balance.yml up
-
-# Плохая сеть
-docker-compose -f docker-compose.quality.yml up
-```
-
-**Вариант 2: docker run**
+**docker run**
 ```bash
 docker run --rm -it \
   -p 1935:1935 \
@@ -30,6 +15,14 @@ docker run --rm -it \
 
 проверяем что все работает http://localhost:8080/ или http://твой_ip:8080/
 
+## Порты
+
+| Порт  | Протокол | Транспорт | Назначение              |
+| ----- | -------- | --------- | ----------------------- |
+| 1935  | RTMP     | TCP       | Отправка и приём стрима |
+| 8080  | HTTP     | TCP       | Веб-консоль SRS         |
+| 10080 | SRT      | UDP       | Отправка и приём стрима |
+
 2.1) Траслируем в OBS (по **RTMP**)
 ![[obs_send.png]]
 2.2) Траслируем в OBS (по **SRT**)
@@ -41,14 +34,6 @@ docker run --rm -it \
 3.2) Смотреть в OBS (по SRT)
 
 srt://IP:10080?streamid=#!::r=live/livestream,m=request
-
-| Конфиг   | Latency   | Буферы | tlpktdrop | tsbpdmode | Сценарий          | RTT       |
-| -------- | --------- | ------ | --------- | --------- | ----------------- | --------- |
-| LOCAL    | 120ms     | 2MB    | ON        | ON        | Локалка/WiFi      | 1-30ms    |
-| SPEED    | 400ms     | 1.5MB  | ON        | ON        | 5G/хороший 4G     | ~100ms    |
-| BALANCED | 600ms     | 3MB    | ON        | ON        | Типичный 4G       | ~150ms    |
-| QUALITY  | 0 (адапт) | 10MB   | OFF       | OFF       | Плохая сеть       | любой     |
-
 
 # Примеры стриминга
 
