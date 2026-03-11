@@ -6,6 +6,7 @@
 ```bash
 docker run --rm -it \
   -p 1935:1935 \
+  -p 1985:1985 \
   -p 8080:8080 \
   -p 10080:10080/udp \
   -v "D:\AndroidProject\docs\стрим\srs.txt":/usr/local/srs/conf/srt.conf \
@@ -49,8 +50,12 @@ srt://IP:10080?streamid=#!::r=live/livestream,m=request
 - Сервер: `srt://{your_server_ip}:10080`
 - Stream Key: `#!::r=live/{name},m=publish`
 ### Считываем
-- Источник медиа -> Вввод: `srt://{your_server_ip}:10080?streamid=#!::r=live/{name},m=publish`
-- Источник медиа -> Вввод: `srt://{your_server_ip}:10080?streamid=live/{name}`
+- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=#!::r=live/{name},m=publish`
+- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=live/{name}`
+- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=live/livestream`
+- Источник медиа -> Вввод: `rtmp://127.0.0.1/live/livestream`
+
+Включите «Использовать аппаратное декодирование»
 
 ## Camera настройка:
 - `srt://{your_server_ip}:10080`
