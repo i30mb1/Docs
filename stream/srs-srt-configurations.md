@@ -4,29 +4,23 @@
 
 **docker run**
 ```bash
-docker run --rm -it \
-  -p 1935:1935 \
-  -p 1985:1985 \
-  -p 8080:8080 \
-  -p 10080:10080/udp \
-  -v "D:\AndroidProject\docs\стрим\srs.txt":/usr/local/srs/conf/srt.conf \
-  ossrs/srs:v6.0-r0 \
-  ./objs/srs -c conf/srt.conf
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 -p 10080:10080/udp -v "D:\AndroidProject\docs\stream\srs.conf":/usr/local/srs/conf/srs.conf ossrs/srs:v6.0-r0 ./objs/srs -c conf/srs.conf
 ```
 
 проверяем что все работает http://localhost:8080/ или http://твой_ip:8080/
 
 ## Порты
 
-| Порт  | Протокол | Транспорт | Назначение              |
-| ----- | -------- | --------- | ----------------------- |
-| 1935  | RTMP     | TCP       | Отправка и приём стрима |
-| 8080  | HTTP     | TCP       | Веб-консоль SRS         |
-| 10080 | SRT      | UDP       | Отправка и приём стрима |
+| Порт  | Протокол | Транспорт | Назначение                       |
+| ----- | -------- | --------- | -------------------------------- |
+| 1935  | RTMP     | TCP       | Отправка и приём стрима          |
+| 1985  | HTTP API | TCP       | API SRS (локально, наружу не надо) |
+| 8080  | HTTP     | TCP       | Веб-консоль SRS                  |
+| 10080 | SRT      | UDP       | Отправка и приём стрима          |
 
-2.1) Траслируем в OBS (по **RTMP**)
+2.1) Отдаем картинку через OBS (по **RTMP**)
 ![[obs_send.png]]
-2.2) Траслируем в OBS (по **SRT**)
+2.2) Отдаем картинку через OBS (по **SRT**)
 ![[send_obs_srt.png]]
 3) Смотрим в OBS (по RTMP)
    rtmp://localhost:1935/live/livestream
@@ -47,13 +41,13 @@ srt://IP:10080?streamid=#!::r=live/livestream,m=request
 
 ## OBS настройка:
 ### Транслируем на сервер
-- Сервер: `srt://{your_server_ip}:10080`
+- Сервер: `srt://93.84.96.193:10080`
 - Stream Key: `#!::r=live/{name},m=publish`
 ### Считываем
-- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=#!::r=live/{name},m=publish`
-- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=live/{name}`
-- Источник медиа -> Вввод: `srt://127.0.0.1:10080?streamid=live/livestream`
-- Источник медиа -> Вввод: `rtmp://127.0.0.1/live/livestream`
+- Источник медиа -> Ввод: `srt://93.84.96.193:10080?streamid=#!::r=live/{name},m=request`
+- Источник медиа -> Ввод: `srt://93.84.96.193:10080?streamid=live/{name}`
+- Источник медиа -> Ввод: `srt://93.84.96.193:10080?streamid=live/livestream`
+- Источник медиа -> Ввод: `rtmp://127.0.0.1/live/livestream`
 
 Включите «Использовать аппаратное декодирование»
 
@@ -61,7 +55,7 @@ srt://IP:10080?streamid=#!::r=live/livestream,m=request
 - `srt://{your_server_ip}:10080`
 
 ## Larix Настройка:
-- url: `srt://{your_server_ip}:10080`
+- url: `srt://93.84.96.193:10080`
 - streamid:  `#!::r=live/{name},m=publish`
 
 
@@ -72,3 +66,5 @@ srt://IP:10080?streamid=#!::r=live/livestream,m=request
 | 1080p/60 | 6000 kbps | 4000 kbps |
 | 1080p/30 | 4500 kbps | 3000 kbps |
 | 720p/60  | 4500 kbps | 3000 kbps |
+
+
